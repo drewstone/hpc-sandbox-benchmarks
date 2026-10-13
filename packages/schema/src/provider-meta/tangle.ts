@@ -13,10 +13,10 @@ export default defineProviderMeta("tangle", {
 		{ name: "TANGLE_SANDBOX_BASE_URL", source: { kind: "variable" }, required: false },
 	],
 	isolation: {
-		class: "container",
-		technology: "container (Docker driver, platform default)",
+		class: "unknown",
+		technology: "Deployment-dependent (Docker observed during qualification)",
 		notes:
-			"Declared from the platform's default create path (no `driver` requested); the SDK also exposes Firecracker and host-agent drivers that this adapter does not select. Confirm with the in-guest isolation probe before publication.",
+			"Prior qualification observed a Docker-backed container. This adapter does not select a driver, and the platform also supports microVM and operator-backed drivers. Run the in-guest isolation probe for each benchmark and publish its observed class; the qualification observation is not a public default guarantee.",
 	},
 	pricing: {
 		model: "published",
@@ -48,12 +48,17 @@ export default defineProviderMeta("tangle", {
 		],
 		targetHourlyCost: { kind: "exact", componentIds: ["cpu", "memory", "disk"] },
 		notes:
-			"The published `general` pool rate card (source: reference-constants) bills the requested size while the sandbox runs, with a $0.04/hr minimum charge; the 4 vCPU / 8 GB / 40 GB target is about $0.128/hr. Sizes above 1 vCPU / 2 GB need a paid plan (Pro: 8 vCPU / 16 GB, 25 concurrent sandboxes).",
+			"The published `general` pool rate card (source: reference-constants) bills requested resources per second while running, with a $0.04/hr minimum across CPU, memory and disk; the 4 vCPU / 8 GB / 40 GB component sum is about $0.128/hr if admitted. Memory and disk rates are per GB, treated here as GiB; the unit conversion remains unverified. Maximum shapes and paid-plan concurrency are not publicly established. Stopped-sandbox and snapshot storage charges are unknown.",
 		sources: [
 			{
 				label: "Tangle Sandbox rate card",
 				url: "https://sandbox.tangle.tools/v1/pricing/sandboxes",
-				checkedAt: "2026-10-11",
+				checkedAt: "2026-10-13",
+			},
+			{
+				label: "Tangle public subscription plans",
+				url: "https://id.tangle.tools/api/v1/plans",
+				checkedAt: "2026-10-13",
 			},
 		],
 		adjustments: [
@@ -61,11 +66,21 @@ export default defineProviderMeta("tangle", {
 				kind: "fee",
 				plan: "Pro",
 				resource: "plan",
-				quantity: 29,
+				quantity: 29.99,
 				unit: "USD/month",
 				scope: "monthly",
 				notes:
-					"Includes a $30 monthly usage balance; the first plan whose limits admit the target shape.",
+					"Public Pro subscription price; the plan data does not establish target-shape admission or a concurrent-sandbox limit.",
+			},
+			{
+				kind: "allowance",
+				plan: "Pro",
+				resource: "plan",
+				quantity: 29.99,
+				unit: "USD",
+				scope: "monthly",
+				notes:
+					"Monthly usage credit, which does not discount the headline resource rate. Unused-credit rollover is not published.",
 			},
 		],
 	},
