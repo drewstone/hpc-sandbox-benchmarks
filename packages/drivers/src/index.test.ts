@@ -28,6 +28,7 @@ describe("generated driver loader", () => {
 			"boat",
 			"freestyle",
 			"brezel",
+			"digitalocean",
 			"tangle",
 		]);
 		expect(Object.values(DRIVERS).every((load) => typeof load === "function")).toBe(true);

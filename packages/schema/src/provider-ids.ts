@@ -21,7 +21,15 @@ export const PROVIDER_IDS = [
 	"boat",
 	"freestyle",
 	"brezel",
+	"digitalocean",
 	"tangle",
 ] as const;
 
 export type ProviderId = (typeof PROVIDER_IDS)[number];
+
+/**
+ * Providers removed from the registry whose evidence committed Run documents still carry. Those
+ * Runs stay published as historical snapshots, so their per-cell evidence must keep parsing; nothing
+ * can create a new cell for one.
+ */
+export const RETIRED_PROVIDER_IDS = ["runloop"] as const;

@@ -1,0 +1,57 @@
+import { defineProviderMeta } from "../provider-meta.ts";
+
+export default defineProviderMeta("digitalocean", {
+	displayName: "DigitalOcean MicroVMs",
+	vendor: "DigitalOcean",
+	website: "https://www.digitalocean.com/products/microvms",
+	// No client library covers MicroVMs yet (see packages/digitalocean/README.md).
+	sdkPackage: "DigitalOcean MicroVMs API",
+	// Boots the shared public toolchain image straight from ghcr.io (`source.oci_ref`); nothing baked.
+	artifact: { kind: "image" },
+	inputs: ["DIGITAL_OCEAN_TOKEN"],
+	isolation: {
+		class: "microVM",
+		technology: "Firecracker microVM (one container image per VM)",
+		notes:
+			"Each MicroVM runs one OCI image in a Firecracker VM with its own guest kernel (6.1 observed); commands run inside the workload container (containerd-runc) as root, so the isolation probe reads `container` unless machine_vmm is read first. The guest sees its own allocation: nproc and MemTotal match the size.",
+	},
+	pricing: {
+		model: "published",
+		components: [
+			{
+				id: "size-8x16",
+				resource: "cpu_memory",
+				billingBasis: "provisioned",
+				vendorUnit: "8 vCPU / 16 GiB size",
+				usdPerUnitHour: 0.312,
+				// Sizes are fixed pairs, so this linear rule holds only for targets served by the 8/16 size
+				// (the 4 vCPU / 8 GiB target is); packages/digitalocean's tests pin that mapping.
+				quantityRule: { kind: "linear", dimension: "vcpus", unitsPerTargetUnit: 0.25 },
+				notes: "8 x $0.022 per vCPU-hour + 16 x $0.0085 per GiB-hour.",
+			},
+		],
+		targetHourlyCost: { kind: "exact", componentIds: ["size-8x16"] },
+		notes:
+			"Per-second compute billing at the allocated size, only while running (not while creating, pausing or paused). Disk ($0.05 per GiB-month of used storage) and egress ($0.01/GiB) are usage-billed and excluded from benchmark economics.",
+		sources: [
+			{
+				label: "DigitalOcean MicroVMs pricing",
+				url: "https://docs.digitalocean.com/products/microvms/details/pricing/",
+				checkedAt: "2026-10-14",
+			},
+		],
+	},
+	maturity: {
+		status: "beta",
+		notes:
+			"Public preview (MKC1 only). Included in the default CPU benchmark selection after a complete DigitalOcean-only run (38723321092: 56/56 cells, 0 gaps, no rate-limit events at 8 concurrent sandboxes). The enforced limit is 100 running vCPUs per account (12 concurrent 8 vCPU / 16 GiB MicroVMs), which GET /v2/microvms/options does not report; the memory and disk limits it does report were not enforced.",
+	},
+	// Fixed vCPU / memory pairs (1/2, 2/4, 8/16, 16/32), each with its own fixed disk.
+	specPinning: "fixed",
+	transport: {
+		streaming: false,
+		// Exec dies past ~41s (HTTP 524), well inside its documented 60s; longer steps detach.
+		syncCapMs: 30_000,
+		detachedPoll: true,
+	},
+});

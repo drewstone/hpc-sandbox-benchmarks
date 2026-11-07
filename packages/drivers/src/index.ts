@@ -22,6 +22,7 @@ export interface DriverModuleMap {
 	boat: typeof import("@sandbox-benchmarks/boat").default;
 	freestyle: typeof import("@sandbox-benchmarks/freestyle").default;
 	brezel: typeof import("@sandbox-benchmarks/brezel").default;
+	digitalocean: typeof import("@sandbox-benchmarks/digitalocean").default;
 	tangle: typeof import("@sandbox-benchmarks/tangle").default;
 }
 
@@ -57,6 +58,7 @@ export const DRIVERS: {
 	boat: () => import("@sandbox-benchmarks/boat").then((module) => module.default),
 	freestyle: () => import("@sandbox-benchmarks/freestyle").then((module) => module.default),
 	brezel: () => import("@sandbox-benchmarks/brezel").then((module) => module.default),
+	digitalocean: () => import("@sandbox-benchmarks/digitalocean").then((module) => module.default),
 	tangle: () => import("@sandbox-benchmarks/tangle").then((module) => module.default),
 });
 

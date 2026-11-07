@@ -32,6 +32,7 @@ export const MIGRATED_DRIVER_IDS = [
 	"boat",
 	"freestyle",
 	"brezel",
+	"digitalocean",
 	"tangle",
 ] as const satisfies readonly ProviderId[];
 

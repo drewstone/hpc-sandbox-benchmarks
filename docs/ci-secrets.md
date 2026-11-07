@@ -238,6 +238,7 @@ Do this in the GitHub UI (Settings → Environments / Rules / Actions), then del
    | `BOAT_API_KEY` | boat provider runtime and validation |
    | `FREESTYLE_API_KEY` | Freestyle provider runtime and validation |
    | `BREZEL_API_KEY` | Brezel provider runtime and validation |
+   | `DIGITAL_OCEAN_TOKEN` | DigitalOcean MicroVMs provider runtime and validation |
    | `TANGLE_API_KEY` | Tangle Sandbox provider runtime and validation |
    <!-- <<< end generated: provider-secrets -->
 
