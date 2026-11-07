@@ -483,7 +483,7 @@
       "@infercrane/brezel": "0.1.1",
       "@namespacelabs/sdk": "1.0.0",
       "@run-cloud/sdk": "0.9.0",
-      "@tangle-network/sandbox": "0.60.14",
+      "@tangle-network/sandbox": "1.0.264",
       "@vercel/sandbox": "2.9.2",
       "computesdk": "4.1.3",
       "e2b": "2.27.1",
@@ -1083,13 +1083,13 @@
 
     "@superradcompany/microsandbox-win32-x64-msvc": ["@superradcompany/microsandbox-win32-x64-msvc@0.6.8", "", { "os": "win32", "cpu": "x64" }, "sha512-Asfn+8+CplKh05MyJIoRJzLCl1Z05B/n6Lc6+tpfFKmHjMkQw976L67AqqBQq4AxfkakBcpZYVHZQqUDxl5Fow=="],
 
-    "@tangle-network/agent-core": ["@tangle-network/agent-core@0.10.3", "", { "dependencies": { "@tangle-network/agent-interface": "^3.0.0", "@tangle-network/agent-trace-contract": "^2.0.0", "zod": "4.6.5" }, "peerDependencies": { "@modelcontextprotocol/sdk": "^1.30.0" }, "optionalPeers": ["@modelcontextprotocol/sdk"] }, "sha512-PMnibf/yXFlMjIpCwF8jzJJdfFp3Wm/eIj6n7tLZ5vBIB4tsinyk+iOBQd85K4ASYbU1qX/kGbz+jN5/mxaBNA=="],
+    "@tangle-network/agent-core": ["@tangle-network/agent-core@1.0.3", "", { "dependencies": { "@tangle-network/agent-interface": "^5.10.2", "@tangle-network/agent-trace-contract": "^2.1.0", "zod": "^4.6.6" }, "peerDependencies": { "@modelcontextprotocol/sdk": "^1.30.0" }, "optionalPeers": ["@modelcontextprotocol/sdk"] }, "sha512-XEYUcGi2XZTCBcVKb6OK8PFbtW2xcI/0VtvRPWQtuVuBZWTb5PeI4HQ+r+rZB9IBuJpFzfm9wWfWum3zjWbsyQ=="],
 
-    "@tangle-network/agent-interface": ["@tangle-network/agent-interface@2.20.1", "", { "dependencies": { "@noble/hashes": "2.4.0", "spdx-expression-parse": "5.0.0", "zod": "4.6.5" } }, "sha512-f6o+YkPcTb8cOpNaSdJ8/SqJcA3d8LYL4XSaIr6pjF3f/WAGuU79h5nnXA69Pwxbqc4Zn0e7w/S6CFiDMa5Tcg=="],
+    "@tangle-network/agent-interface": ["@tangle-network/agent-interface@5.10.20", "", { "dependencies": { "@noble/hashes": "2.4.0", "spdx-expression-parse": "5.0.0", "zod": "^4.6.6" } }, "sha512-aEzAfS8iatWo/nX8dyTeZnQx+okHlumBZQyUCFLhQ6VoV+/byrRaQZzeVhMTtm3Yn89kvtOofZz4fZ5GH+vD/A=="],
 
-    "@tangle-network/agent-trace-contract": ["@tangle-network/agent-trace-contract@2.0.0", "", {}, "sha512-lq2hp3gg8FsNVA3yZAyuj3NvL57pJTsI6sUF8cYwVsUXA8QZlrO78SqRPRslWxf/sMFHxXhusOuDQ3YxVv12bw=="],
+    "@tangle-network/agent-trace-contract": ["@tangle-network/agent-trace-contract@2.2.2", "", {}, "sha512-46CGFTHw1E+Fvykjdf3tS0ysQugv+DdM9TptHjALVeFzO+Z4Baiw6XWJLYiP3fx/UEk3QCIiITD1qoPi8XfgkA=="],
 
-    "@tangle-network/sandbox": ["@tangle-network/sandbox@0.60.14", "", { "dependencies": { "@tangle-network/agent-core": "^0.10.2", "@tangle-network/agent-interface": "^2.16.0", "tar-stream": "3.2.1", "zod": "4.6.5" }, "peerDependencies": { "@mastra/core": "^1.36.0", "@modelcontextprotocol/sdk": "^1.30.0", "ai": "^6.0.175 || ^7.0.107", "openai": "^6.36.0", "viem": "^2.0.0" }, "optionalPeers": ["@mastra/core", "@modelcontextprotocol/sdk", "ai", "openai", "viem"] }, "sha512-CyOjFHoQXbhJMG4sEQQcjrHDonOCj9MRYyKw/A/Y59TpyLw2GNNULUv2xzu3EWHb2S0CZ0HjWPgmDc0AFdA4xQ=="],
+    "@tangle-network/sandbox": ["@tangle-network/sandbox@1.0.264", "", { "dependencies": { "@tangle-network/agent-core": "^1.0.3", "@tangle-network/agent-interface": "^5.10.20", "@tangle-network/agent-trace-contract": "^2.2.0", "tar-stream": "3.2.1", "zod": "^4.6.6" }, "peerDependencies": { "@mastra/core": "^1.36.0", "@modelcontextprotocol/sdk": "^1.30.0", "ai": "^6.0.175 || ^7.0.107", "openai": "^6.36.0", "viem": "^2.0.0" }, "optionalPeers": ["@mastra/core", "@modelcontextprotocol/sdk", "ai", "openai", "viem"] }, "sha512-apuRQxPnm5igWxyBwpxo+DYPukAV1l2z75EoI+ez+vVC1VlTvKNbJBtxk+mKnDvqpbFPAid7cNjujPCEv/xQUA=="],
 
     "@tootallnate/once": ["@tootallnate/once@2.0.0", "", {}, "sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A=="],
 
@@ -2057,15 +2057,13 @@
 
     "@protobuf-ts/plugin/typescript": ["typescript@3.9.10", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q=="],
 
-    "@tangle-network/agent-core/@tangle-network/agent-interface": ["@tangle-network/agent-interface@3.2.0", "", { "dependencies": { "@noble/hashes": "2.4.0", "spdx-expression-parse": "5.0.0", "zod": "4.6.5" } }, "sha512-bGHzgO0M/qvMg3OR3Di7440a/9JJ1KddGKl1cJ+DZ5g3HuP2Cl7sLvEiCOFb4lyBioYWWPv7zYRwlMWx0dYY2g=="],
+    "@tangle-network/agent-core/zod": ["zod@4.6.7", "", {}, "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="],
 
-    "@tangle-network/agent-core/zod": ["zod@4.6.5", "", {}, "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q=="],
-
-    "@tangle-network/agent-interface/zod": ["zod@4.6.5", "", {}, "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q=="],
+    "@tangle-network/agent-interface/zod": ["zod@4.6.7", "", {}, "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="],
 
     "@tangle-network/sandbox/tar-stream": ["tar-stream@3.2.1", "", { "dependencies": { "b4a": "^1.6.4", "bare-fs": "^4.5.5", "fast-fifo": "^1.2.0", "streamx": "^2.15.0" } }, "sha512-nqsEO8zLZJvrOMdEwkA0QdCLFbetHMn95Zqu4fKwX+hkaTWJPZZOrxx/PwtxoK0MMGQmBQNRW3CPs8IFYQz4cQ=="],
 
-    "@tangle-network/sandbox/zod": ["zod@4.6.5", "", {}, "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q=="],
+    "@tangle-network/sandbox/zod": ["zod@4.6.7", "", {}, "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="],
 
     "@ts-morph/common/minimatch": ["minimatch@3.1.5", "", { "dependencies": { "brace-expansion": "^1.1.7" } }, "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="],
 

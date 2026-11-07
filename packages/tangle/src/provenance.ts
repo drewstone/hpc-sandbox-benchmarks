@@ -3,5 +3,5 @@
 
 export const TANGLE_PROVENANCE = Object.freeze({
 	packageName: "@tangle-network/sandbox",
-	version: "0.60.14",
+	version: "1.0.264",
 });
