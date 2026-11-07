@@ -306,7 +306,6 @@ Do this in the GitHub UI (Settings → Environments / Rules / Actions), then del
    | `BREZEL_API_URL` | Brezel | — |
    | `BREZEL_PROJECT_ID` | Brezel | — |
    | `BREZEL_ENVIRONMENT_REVISION` | Brezel | — |
-   | `TANGLE_SANDBOX_BASE_URL` | Tangle Sandbox | — |
    <!-- <<< end generated: provider-variables -->
 
    Optional values with a declared provider default use it when unset. The two Vercel namespace

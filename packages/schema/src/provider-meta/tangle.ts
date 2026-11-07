@@ -8,10 +8,7 @@ export default defineProviderMeta("tangle", {
 	// The create's `environment` takes an arbitrary OCI reference, so the shared toolchain image is
 	// booted directly; there is no provider-side template to bake.
 	artifact: { kind: "image" },
-	inputs: [
-		"TANGLE_API_KEY",
-		{ name: "TANGLE_SANDBOX_BASE_URL", source: { kind: "variable" }, required: false },
-	],
+	inputs: ["TANGLE_API_KEY"],
 	isolation: {
 		class: "unknown",
 		technology: "Deployment-dependent (Docker observed during qualification)",
